@@ -6,6 +6,14 @@
         insert into topic (topic_title,topic_content,topic_status) values (#{topicTitle},#{topicContent},#{topicStatus})
     </insert>
 
+    <update id="update" parameterType="com.system.yyn.topicsystem.entity.po.Topic">
+        update topic set
+        topic_title = #{topicTitle},
+        topic_content = #{topicContent},
+        topic_status = #{topicStatus}
+        where topic_id = #{topicId}
+    </update>
+
     <select id="getId" resultType="java.lang.Long">
         SELECT LAST_INSERT_ID()
     </select>

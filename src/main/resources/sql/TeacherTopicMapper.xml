@@ -2,8 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.system.yyn.topicsystem.mapper.TeacherTopicMapper">
 
+    <resultMap id="voMap" type="com.system.yyn.topicsystem.entity.vo.TeacherTopicVO">
+        <result property="topicTitle" column="topic_title"/>
+        <result property="studentNum" column="student_num"/>
+        <result property="status" column="status"/>
+    </resultMap>
+
     <insert id="insert">
         insert into teacher_topic values (#{teacherId},#{topicId})
     </insert>
+
+    <select id="getTopicList" resultType="com.system.yyn.topicsystem.entity.vo.TeacherTopicVO">
+
+    </select>
 
 </mapper>

@@ -3,9 +3,7 @@ package com.system.yyn.topicsystem.entity.po;
 import java.io.Serializable;
 
 /**
- * @author : lyj
- * @description:
- * @date :2020/3/22  17:22
+ * @description: 学生课题
  */
 public class StudentTopic implements Serializable {
     private static final long serialVersionUID = 7190642364418780394L;

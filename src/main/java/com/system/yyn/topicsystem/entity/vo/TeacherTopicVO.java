@@ -3,9 +3,7 @@ package com.system.yyn.topicsystem.entity.vo;
 import java.io.Serializable;
 
 /**
- * @author : lyj
- * @description:
- * @date :2020/3/22  17:29
+ * @description: 教师课题列表展示类
  */
 public class TeacherTopicVO implements Serializable {
     private static final long serialVersionUID = 4905330782764302587L;

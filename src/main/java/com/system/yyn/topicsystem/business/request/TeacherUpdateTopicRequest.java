@@ -1,26 +1,27 @@
-package com.system.yyn.topicsystem.entity.po;
+package com.system.yyn.topicsystem.business.request;
 
 import java.io.Serializable;
 
 /**
- * @description: 课题信息
+ * @ClassName : TeacherUpdateTopicRequest
+ * @Description :教师修改课题
  */
-public class Topic implements Serializable {
-    private static final long serialVersionUID = 8097658796288497727L;
+public class TeacherUpdateTopicRequest implements Serializable {
+    private static final long serialVersionUID = 8386711381785816525L;
 
-    private long topicId;
+    private String topicId;
 
     private String topicTitle;
 
     private String topicContent;
 
-    private int topicStatus; //0正常 1下架
+    private String topicStatus;
 
-    public long getTopicId() {
+    public String getTopicId() {
         return topicId;
     }
 
-    public void setTopicId(long topicId) {
+    public void setTopicId(String topicId) {
         this.topicId = topicId;
     }
 
@@ -40,11 +41,11 @@ public class Topic implements Serializable {
         this.topicContent = topicContent;
     }
 
-    public int getTopicStatus() {
+    public String getTopicStatus() {
         return topicStatus;
     }
 
-    public void setTopicStatus(int topicStatus) {
+    public void setTopicStatus(String topicStatus) {
         this.topicStatus = topicStatus;
     }
 }

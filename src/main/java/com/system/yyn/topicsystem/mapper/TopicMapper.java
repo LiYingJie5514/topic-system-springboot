@@ -8,4 +8,5 @@ public interface TopicMapper {
 
     long getId();
 
+    int update(Topic topic);
 }

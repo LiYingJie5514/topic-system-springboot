@@ -8,9 +8,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 
 /**
- * @author : lyj
- * @description:
- * @date :2020/3/22  8:38
+ * @description: 用户信息维护接口
  */
 @Service
 public class UserServiceImpl implements UserService {

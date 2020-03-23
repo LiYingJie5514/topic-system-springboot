@@ -3,9 +3,7 @@ package com.system.yyn.topicsystem.entity.po;
 import java.io.Serializable;
 
 /**
- * @author : lyj
- * @description:
- * @date :2020/3/22  8:43
+ * @description: 用户信息
  */
 public class User implements Serializable {
     private static final long serialVersionUID = -6235965638637862469L;

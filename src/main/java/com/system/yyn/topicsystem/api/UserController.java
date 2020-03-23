@@ -9,9 +9,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * @author : lyj
- * @description:
- * @date :2020/3/22  7:31
+ * @description: 用户信息
  */
 @Controller
 @RequestMapping("/userInfo")

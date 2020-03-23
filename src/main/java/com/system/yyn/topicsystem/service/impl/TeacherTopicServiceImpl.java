@@ -1,23 +1,24 @@
 package com.system.yyn.topicsystem.service.impl;
 
 import com.system.yyn.topicsystem.business.request.AddTopicRequest;
+import com.system.yyn.topicsystem.business.request.TeacherGetTopicsRequest;
+import com.system.yyn.topicsystem.business.request.TeacherUpdateTopicRequest;
 import com.system.yyn.topicsystem.entity.po.TeacherTopic;
 import com.system.yyn.topicsystem.entity.po.Topic;
+import com.system.yyn.topicsystem.entity.vo.TeacherTopicVO;
 import com.system.yyn.topicsystem.mapper.TeacherTopicMapper;
 import com.system.yyn.topicsystem.mapper.TopicMapper;
 import com.system.yyn.topicsystem.service.TeacherTopicService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
- * @author : lyj
- * @description:
- * @date :2020/3/22  17:24
+ * @description: 教师课题接口
  */
 @Service
 public class TeacherTopicServiceImpl implements TeacherTopicService {
-
 
     @Resource
     private TopicMapper topicMapper;
@@ -44,6 +45,23 @@ public class TeacherTopicServiceImpl implements TeacherTopicService {
         }
 
         return 0;
+    }
+
+    @Override
+    public int updateTopic(TeacherUpdateTopicRequest request) {
+        Topic topic = new Topic();
+        topic.setTopicId(Long.parseLong(request.getTopicId()));
+        topic.setTopicContent(request.getTopicContent());
+        topic.setTopicTitle(request.getTopicTitle());
+        topic.setTopicStatus(Integer.parseInt(request.getTopicStatus()));
+        int update = topicMapper.update(topic);
+        return update;
+    }
+
+    @Override
+    public List<TeacherTopicVO> getTopicList(TeacherGetTopicsRequest request) {
+        List<TeacherTopicVO> topicList = teacherTopicMapper.getTopicList(request.getTeacherId());
+        return topicList;
     }
 
 

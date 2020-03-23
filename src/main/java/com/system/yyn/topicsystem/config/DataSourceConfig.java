@@ -23,10 +23,7 @@ import java.util.Properties;
 /**
  ************************************************************
  * @类名 : DataSourceConfig.java
- *
  * @DESCRIPTION :数据源相关配置
- * @AUTHOR : cgj
- * @DATE : 2017年10月28日
  ************************************************************
  */
 @Configuration

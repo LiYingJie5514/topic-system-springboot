@@ -3,9 +3,7 @@ package com.system.yyn.topicsystem.business.request;
 import java.io.Serializable;
 
 /**
- * @author : lyj
- * @description:
- * @date :2020/3/22  17:40
+ * @description: 教师添加课题
  */
 public class AddTopicRequest implements Serializable {
     private static final long serialVersionUID = -2329567925566324375L;
