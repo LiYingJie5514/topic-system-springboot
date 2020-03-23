@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.system.yyn.topicsystem.mapper.UserMapper" >
+
+	<resultMap id="baseMap" type="com.system.yyn.topicsystem.entity.po.User">
+		<result property="userName" column="user_name"/>
+		<result property="passWord" column="password"/>
+		<result property="cellphone" column="cellphone"/>
+		<result property="userType" column="user_type"/>
+	</resultMap>
+
+	<insert id="insert" >
+		insert into user(user_name,password,cellphone,user_type) values(#{userName},#{passWord},#{cellphone},#{userType})
+	</insert>
+	
+	<update id="update" >
+		update user set password=#{passWord},cellphone=#{cellphone} where user_name=#{userName}
+	</update>
+	
+	<delete id="delete" >
+		delete from user where user_name=#{userName}
+	</delete>
+	
+	<select id="getAll" resultType="com.system.yyn.topicsystem.entity.po.User" >
+		select * from user
+	</select>
+	
+	<select id="findUser" resultMap="baseMap">
+		select * from user where user_name=#{userName} and password=#{passWord} and user_type = #{userType}
+	</select>
+	
+	<select id="getUserByName" resultType="com.system.yyn.topicsystem.entity.po.User" >
+		select * from user where user_name like #{userName}
+	</select>
+	
+</mapper>
