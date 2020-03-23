@@ -2,8 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.system.yyn.topicsystem.mapper.TopicMapper">
 
+    <resultMap id="topicListMap" type="com.system.yyn.topicsystem.entity.vo.TopicVO">
+        <result property="topicTitle" column="topic_title"/>
+        <result property="topicPeriod" column="topic_period"/>
+        <result property="teacherName" column="username"/>
+    </resultMap>
+
     <insert id="insert">
-        insert into topic (topic_title,topic_content,topic_status) values (#{topicTitle},#{topicContent},#{topicStatus})
+        insert into topic (topic_title,topic_content,topic_status,topic_period,topic_deadline)
+        values (#{topicTitle},#{topicContent},#{topicStatus},#{topicPeriod},#{deadline})
     </insert>
 
     <update id="update" parameterType="com.system.yyn.topicsystem.entity.po.Topic">
@@ -16,5 +23,13 @@
 
     <select id="getId" resultType="java.lang.Long">
         SELECT LAST_INSERT_ID()
+    </select>
+
+    <select id="getTopic" resultType="com.system.yyn.topicsystem.entity.po.Topic">
+        select * from topic where topic_id = #{topicId}
+    </select>
+
+    <select id="getTopicList" resultMap="topicListMap" parameterType="com.system.yyn.topicsystem.entity.dto.GetTopicListDto">
+
     </select>
 </mapper>

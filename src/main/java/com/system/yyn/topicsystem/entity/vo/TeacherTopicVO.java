@@ -10,11 +10,11 @@ public class TeacherTopicVO implements Serializable {
 
     private String topicTitle;
 
-    private String topicContent;
+    private int studentNum;//选题人数
 
-    private int studentNum;
+    private String status;//状态
 
-    private String status;
+    private String deadline;//截止时间
 
     public String getTopicTitle() {
         return topicTitle;
@@ -22,14 +22,6 @@ public class TeacherTopicVO implements Serializable {
 
     public void setTopicTitle(String topicTitle) {
         this.topicTitle = topicTitle;
-    }
-
-    public String getTopicContent() {
-        return topicContent;
-    }
-
-    public void setTopicContent(String topicContent) {
-        this.topicContent = topicContent;
     }
 
     public int getStudentNum() {
@@ -46,5 +38,13 @@ public class TeacherTopicVO implements Serializable {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getDeadline() {
+        return deadline;
+    }
+
+    public void setDeadline(String deadline) {
+        this.deadline = deadline;
     }
 }

@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * @description: 教师添加课题
  */
-public class AddTopicRequest implements Serializable {
+public class TeacherAddTopicRequest implements Serializable {
     private static final long serialVersionUID = -2329567925566324375L;
 
     private String teacherId;
@@ -13,6 +13,8 @@ public class AddTopicRequest implements Serializable {
     private String topicTitle;
 
     private String topicContent;
+
+    private String deadline;
 
     public String getTeacherId() {
         return teacherId;
@@ -36,5 +38,13 @@ public class AddTopicRequest implements Serializable {
 
     public void setTopicContent(String topicContent) {
         this.topicContent = topicContent;
+    }
+
+    public String getDeadline() {
+        return deadline;
+    }
+
+    public void setDeadline(String deadline) {
+        this.deadline = deadline;
     }
 }

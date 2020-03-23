@@ -1,6 +1,6 @@
 package com.system.yyn.topicsystem.api;
 
-import com.system.yyn.topicsystem.business.request.AddTopicRequest;
+import com.system.yyn.topicsystem.business.request.TeacherAddTopicRequest;
 import com.system.yyn.topicsystem.entity.po.User;
 import com.system.yyn.topicsystem.service.TeacherTopicService;
 import com.system.yyn.topicsystem.service.UserService;
@@ -42,7 +42,7 @@ public class AdminUserController {
     }
 
     @RequestMapping("/addTopic")
-    public String addTopic(AddTopicRequest addTopicRequest, HttpServletRequest request) {
+    public String addTopic(TeacherAddTopicRequest addTopicRequest, HttpServletRequest request) {
 
         String username = (String)request.getSession().getAttribute("cellphone");
         addTopicRequest.setTeacherId(username);

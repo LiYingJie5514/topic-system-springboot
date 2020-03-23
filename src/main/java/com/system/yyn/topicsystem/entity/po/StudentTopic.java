@@ -12,7 +12,7 @@ public class StudentTopic implements Serializable {
 
     private String topicId;
 
-    private int status;
+    private int status; //0选择 1退选
 
     public String getStudentId() {
         return studentId;

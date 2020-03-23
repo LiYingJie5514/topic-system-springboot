@@ -17,6 +17,8 @@ public class TeacherUpdateTopicRequest implements Serializable {
 
     private String topicStatus;
 
+    private String deadline;
+
     public String getTopicId() {
         return topicId;
     }
@@ -47,5 +49,13 @@ public class TeacherUpdateTopicRequest implements Serializable {
 
     public void setTopicStatus(String topicStatus) {
         this.topicStatus = topicStatus;
+    }
+
+    public String getDeadline() {
+        return deadline;
+    }
+
+    public void setDeadline(String deadline) {
+        this.deadline = deadline;
     }
 }

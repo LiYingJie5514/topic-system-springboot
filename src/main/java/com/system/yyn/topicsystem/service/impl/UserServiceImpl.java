@@ -13,7 +13,6 @@ import javax.annotation.Resource;
 @Service
 public class UserServiceImpl implements UserService {
 
-
     @Resource
     private UserMapper userMapper;
 
@@ -28,5 +27,10 @@ public class UserServiceImpl implements UserService {
         return userMapper.findUser(user);
     }
 
+    @Override
+    public int updateUser(User user) {
+        int update = userMapper.update(user);
+        return update;
+    }
 
 }

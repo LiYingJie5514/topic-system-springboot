@@ -14,7 +14,10 @@
 	</insert>
 	
 	<update id="update" >
-		update user set password=#{passWord},cellphone=#{cellphone} where user_name=#{userName}
+		update user set
+		user_name=#{userName},
+		password=#{passWord},
+		where cellphone=#{cellphone} and user_type = #{userType}
 	</update>
 	
 	<delete id="delete" >

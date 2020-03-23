@@ -1,6 +1,6 @@
 package com.system.yyn.topicsystem.service;
 
-import com.system.yyn.topicsystem.business.request.AddTopicRequest;
+import com.system.yyn.topicsystem.business.request.TeacherAddTopicRequest;
 import com.system.yyn.topicsystem.business.request.TeacherGetTopicsRequest;
 import com.system.yyn.topicsystem.business.request.TeacherUpdateTopicRequest;
 import com.system.yyn.topicsystem.entity.vo.TeacherTopicVO;
@@ -14,7 +14,7 @@ public interface TeacherTopicService {
      * @param request
      * @return
      */
-    int addTopic(AddTopicRequest request);
+    int addTopic(TeacherAddTopicRequest request);
 
     /**
      * 修改课题
