@@ -7,8 +7,6 @@ import java.io.Serializable;
 /**
  * @ClassName : GetTopicListDto
  * @Description :
- * @Author : lyj
- * @Date: 2020-03-23 17:28
  */
 public class GetTopicListDto implements Serializable {
     private static final long serialVersionUID = 645477381033207877L;

@@ -2,4 +2,33 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.system.yyn.topicsystem.mapper.BulletinMapper">
 
+    <resultMap id="baseMap" type="com.system.yyn.topicsystem.entity.po.Bulletin">
+        <result property="id" column="id"/>
+        <result property="title" column="title"/>
+        <result property="content" column="content"/>
+    </resultMap>
+
+    <insert id="insert">
+        insert into bulletin (title,content) values (#{title},#{title})
+    </insert>
+
+    <update id="update" parameterType="com.system.yyn.topicsystem.entity.po.Bulletin">
+        update bulletin set
+        title = #{title},
+        content = #{content}
+        where id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="com.system.yyn.topicsystem.entity.po.Bulletin">
+        delete from bulletin where id = #{id}
+    </delete>
+
+    <select id="getList" resultMap="baseMap" parameterType="com.system.yyn.topicsystem.entity.po.Bulletin">
+        select * from bulletin order by id desc
+    </select>
+
+    <select id="select" resultMap="baseMap" parameterType="com.system.yyn.topicsystem.entity.po.Bulletin">
+        select * from bulletin where id = #{id}
+    </select>
+
 </mapper>

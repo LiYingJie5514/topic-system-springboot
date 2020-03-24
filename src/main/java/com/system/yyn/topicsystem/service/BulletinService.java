@@ -1,12 +1,12 @@
-package com.system.yyn.topicsystem.mapper;
+package com.system.yyn.topicsystem.service;
 
 import com.system.yyn.topicsystem.entity.po.Bulletin;
 
 import java.util.List;
 
-public interface BulletinMapper {
+public interface BulletinService {
 
-    int insert(Bulletin bulletin);
+    int send(Bulletin bulletin);
 
     int update(Bulletin bulletin);
 
