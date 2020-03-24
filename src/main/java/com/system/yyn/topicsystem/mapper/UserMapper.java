@@ -6,15 +6,17 @@ import java.util.List;
 
 public interface UserMapper {
 
-    public int insert(User user);
+    int insert(User user);
 
-    public int update(User user);
+    int update(User user);
 
-    public int delete(User user);
+    int delete(User user);
 
-    public List<User> getAll(); // 查询全部
+    List<User> getAll(); // 查询全部
 
-    public User findUser(User user);// 用于登陆判断
+    User findUser(User user);// 用于登陆判断
 
-    public List<User> getUserByName(String user);
+    List<User> getUserByName(String user);
+
+    User getUserInfo(User user);
 }

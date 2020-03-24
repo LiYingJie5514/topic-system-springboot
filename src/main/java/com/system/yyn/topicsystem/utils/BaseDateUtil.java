@@ -11,9 +11,6 @@ import java.util.TimeZone;
 
 /**
  * 时间转换工具
- * 
- * @author gongtao
- * @newDate 2011-3-23
  */
 public class BaseDateUtil {
     public final static SimpleDateFormat g_SimpleDateFormat = new SimpleDateFormat("yyyyMMdd");

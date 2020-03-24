@@ -15,9 +15,11 @@
 	
 	<update id="update" >
 		update user set
-		user_name=#{userName},
-		password=#{passWord},
-		where cellphone=#{cellphone} and user_type = #{userType}
+		<if test="passWord != '' and passWord != null">
+			password=#{passWord},
+		</if>
+		user_name=#{userName}
+		where cellphone=#{cellphone}
 	</update>
 	
 	<delete id="delete" >
@@ -35,5 +37,9 @@
 	<select id="getUserByName" resultType="com.system.yyn.topicsystem.entity.po.User" >
 		select * from user where user_name like #{userName}
 	</select>
-	
+
+	<select id="getUserInfo" resultMap="baseMap">
+		select * from user where cellphone = #{cellphone}
+	</select>
+
 </mapper>

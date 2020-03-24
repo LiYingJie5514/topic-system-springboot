@@ -33,4 +33,10 @@ public class UserServiceImpl implements UserService {
         return update;
     }
 
+    @Override
+    public User getUserInfo(User user) {
+        User userInfo = userMapper.getUserInfo(user);
+        return userInfo;
+    }
+
 }

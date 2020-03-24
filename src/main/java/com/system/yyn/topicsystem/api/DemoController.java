@@ -59,7 +59,7 @@ public class DemoController {
 	}
 
 	@RequestMapping("/adminAddTopic")
-	public String addTopic(HttpServletRequest request){
+	public String addTopic(){
 		return "admin/adminAddTopic";
 	}
 }

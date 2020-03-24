@@ -25,4 +25,11 @@ public interface UserService {
      */
     int updateUser(User user);
 
+    /**
+     * 查询用户信息
+     * @param user
+     * @return
+     */
+    User getUserInfo(User user);
+
 }

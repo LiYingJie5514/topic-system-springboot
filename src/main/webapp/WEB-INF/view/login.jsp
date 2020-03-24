@@ -33,7 +33,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div id="centry">
         <form action="userInfo/login" method="post">
         	<div id="log">
-            	<h3>帐号登录</h3>
+                <h3>帐号登录</h3>
+                <div id="div0">
+                    <select name="userType" id="userType" style="display: block; width: 284px; height: 35px; font-size: 13px; color: #999">
+                        <option value="0" selected>学 生</option>
+                        <option value="1">教师</option>
+                        <option value="2">系主任</option>
+                        <option value="3">管理员</option>
+                    </select>
+                </div>
                 <div id="div1">
                 	<input type="text" name="user" class="input" placeholder="手机号/用户名/邮箱" />
                 </div>
