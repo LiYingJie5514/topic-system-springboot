@@ -1,7 +1,6 @@
 package com.system.yyn.topicsystem.entity.po;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * @description: 课题信息
@@ -17,9 +16,9 @@ public class Topic implements Serializable {
 
     private String topicContent;
 
-    private int topicStatus; //0正常 1下架
+    private String status;//0待审核 1审核通过 2审核不通过
 
-    private Date deadline;//截止日期
+    private String comment;//系主任备注
 
     public long getTopicId() {
         return topicId;
@@ -45,14 +44,6 @@ public class Topic implements Serializable {
         this.topicContent = topicContent;
     }
 
-    public int getTopicStatus() {
-        return topicStatus;
-    }
-
-    public void setTopicStatus(int topicStatus) {
-        this.topicStatus = topicStatus;
-    }
-
     public String getTopicPeriod() {
         return topicPeriod;
     }
@@ -61,11 +52,19 @@ public class Topic implements Serializable {
         this.topicPeriod = topicPeriod;
     }
 
-    public Date getDeadline() {
-        return deadline;
+    public String getStatus() {
+        return status;
     }
 
-    public void setDeadline(Date deadline) {
-        this.deadline = deadline;
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 }

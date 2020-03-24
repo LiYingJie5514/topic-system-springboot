@@ -2,10 +2,12 @@ package com.system.yyn.topicsystem.service;
 
 import com.system.yyn.topicsystem.entity.po.User;
 
+import java.util.List;
+
 public interface UserService {
 
     /**
-     * 注册
+     * 注册 添加用户信息
      * @param user
      * @return
      */
@@ -31,5 +33,12 @@ public interface UserService {
      * @return
      */
     User getUserInfo(User user);
+
+    /**
+     * 查询用户信息
+     * @param user
+     * @return
+     */
+    List<User> getUserList(User user);
 
 }

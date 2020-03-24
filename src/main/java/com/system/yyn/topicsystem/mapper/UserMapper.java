@@ -19,4 +19,6 @@ public interface UserMapper {
     List<User> getUserByName(String user);
 
     User getUserInfo(User user);
+
+    List<User> getUserByUserType(String type);
 }

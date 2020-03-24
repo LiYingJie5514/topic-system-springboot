@@ -88,6 +88,11 @@ public class UserController {
         }
     }
 
+    /**
+     * 获取用户信息，跳转修改用户信息页面
+     * @param request
+     * @return
+     */
     @RequestMapping("/userInfo")
     public String userInfo(HttpServletRequest request) {
 
@@ -103,6 +108,11 @@ public class UserController {
         return "login";
     }
 
+    /**
+     * 修改用户信息
+     * @param request
+     * @return
+     */
     @RequestMapping("/updateUserInfo")
     public String updateUserInfo(HttpServletRequest request) {
         String userName = request.getParameter("userName");

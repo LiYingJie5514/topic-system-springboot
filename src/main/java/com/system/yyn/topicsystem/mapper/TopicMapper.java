@@ -2,6 +2,7 @@ package com.system.yyn.topicsystem.mapper;
 
 import com.system.yyn.topicsystem.entity.dto.GetTopicListDto;
 import com.system.yyn.topicsystem.entity.po.Topic;
+import com.system.yyn.topicsystem.entity.vo.DepTopicVO;
 import com.system.yyn.topicsystem.entity.vo.TopicVO;
 
 import java.util.List;
@@ -17,4 +18,8 @@ public interface TopicMapper {
     Topic getTopic(String topicId);
 
     List<TopicVO> getTopicList(GetTopicListDto getTopicListDto);
+
+    List<DepTopicVO> getDetTopics(String status);
+
+    int updateTopicCheck(Topic topic);
 }

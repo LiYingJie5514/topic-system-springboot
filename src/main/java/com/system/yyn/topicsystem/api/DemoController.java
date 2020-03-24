@@ -58,6 +58,10 @@ public class DemoController {
 		return "admin/admin";
 	}
 
+	/**
+	 * 教师添加课题
+	 * @return
+	 */
 	@RequestMapping("/adminAddTopic")
 	public String addTopic(){
 		return "admin/adminAddTopic";

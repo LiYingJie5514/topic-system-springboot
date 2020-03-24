@@ -31,9 +31,9 @@ public class StudentTopicServiceImpl implements StudentTopicService {
 
         //判断课题状态
         Topic topic = topicMapper.getTopic(topicId);
-        if (topic.getTopicStatus() == 0 && topic.getTopicPeriod().equals(BaseDateUtil.getCurDateYYYY())) {
+        if (topic.getTopicPeriod().equals(BaseDateUtil.getCurDateYYYY())) {
             StudentTopic studentTopic = new StudentTopic();
-            studentTopic.setStatus(0);//0选择 1退选
+            studentTopic.setStatus(0);//0待审核 1审核通过 2审核不通过
             studentTopic.setStudentId(studentId);
             studentTopic.setTopicId(topicId);
             studentTopicMapper.insert(studentTopic);
@@ -45,11 +45,11 @@ public class StudentTopicServiceImpl implements StudentTopicService {
     }
 
     @Override
-    public int quitTopic(String topicId, String studentId) {
+    public int check(String topicId, String studentId,int status) {
         StudentTopic studentTopic = new StudentTopic();
         studentTopic.setTopicId(topicId);
         studentTopic.setStudentId(studentId);
-        studentTopic.setStatus(1);
+        studentTopic.setStatus(status);
         int update = studentTopicMapper.update(studentTopic);
         return update;
     }

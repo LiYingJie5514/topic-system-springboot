@@ -14,6 +14,8 @@ public class StudentTopic implements Serializable {
 
     private int status; //0选择 1退选
 
+    private String reason;//选择理由
+
     public String getStudentId() {
         return studentId;
     }
@@ -36,5 +38,13 @@ public class StudentTopic implements Serializable {
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    public String getReason() {
+        return reason;
+    }
+
+    public void setReason(String reason) {
+        this.reason = reason;
     }
 }

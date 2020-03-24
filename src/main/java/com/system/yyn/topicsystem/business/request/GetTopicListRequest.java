@@ -4,9 +4,7 @@ import java.io.Serializable;
 
 /**
  * @ClassName : GetTopicListRequest
- * @Description :
- * @Author : lyj
- * @Date: 2020-03-23 17:14
+ * @Description : 获取历届课题信息请求类
  */
 public class GetTopicListRequest implements Serializable {
     private static final long serialVersionUID = 3210095365466448427L;

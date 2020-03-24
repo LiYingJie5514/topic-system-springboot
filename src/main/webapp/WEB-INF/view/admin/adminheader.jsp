@@ -46,9 +46,10 @@
 
   <div id="menu">
     <ul>
-        <li><a href="/">我的课程</a></li>
+        <li><a href="/adminUser/queryTopics">首页</a></li>
+        <li><a href="/adminUser/queryTopics">我的课题</a></li>
         <li><a href="/adminAddTopic">课题审核</a></li>
-        <li><a href="/adminAddTopic">添加课程</a></li>
+        <li><a href="/adminAddTopic">添加课题</a></li>
         <li><a href="/userInfo/userInfo">个人信息</a></li>
     </ul>
   </div>

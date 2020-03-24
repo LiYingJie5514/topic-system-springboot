@@ -11,7 +11,7 @@ public class User implements Serializable {
     private String userName;
     private String passWord;
     private String cellphone;
-    private String userType; //0 学生 1教师
+    private String userType; //0 学生 1教师 2系主任 3系统管理员
 
     public String getUserName() {
         return userName;

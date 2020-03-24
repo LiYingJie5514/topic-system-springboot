@@ -8,16 +8,30 @@
         <result property="teacherName" column="username"/>
     </resultMap>
 
+    <resultMap id="depMap" type="com.system.yyn.topicsystem.entity.vo.DepTopicVO">
+        <result property="topicId" column="topic_id"/>
+        <result property="topicTitle" column="topic_title"/>
+        <result property="period" column="topic_period"/>
+        <result property="teacherName" column="username"/>
+        <result property="status" column="status"/>
+    </resultMap>
+
     <insert id="insert">
-        insert into topic (topic_title,topic_content,topic_status,topic_period,topic_deadline)
-        values (#{topicTitle},#{topicContent},#{topicStatus},#{topicPeriod},#{deadline})
+        insert into topic (topic_title,topic_content,topic_period)
+        values (#{topicTitle},#{topicContent},#{topicPeriod})
     </insert>
 
     <update id="update" parameterType="com.system.yyn.topicsystem.entity.po.Topic">
         update topic set
         topic_title = #{topicTitle},
-        topic_content = #{topicContent},
-        topic_status = #{topicStatus}
+        topic_content = #{topicContent}
+        where topic_id = #{topicId}
+    </update>
+
+    <update id="updateTopicCheck">
+        update topic set
+        status = #{status},
+        comment = #{comment}
         where topic_id = #{topicId}
     </update>
 
@@ -30,6 +44,10 @@
     </select>
 
     <select id="getTopicList" resultMap="topicListMap" parameterType="com.system.yyn.topicsystem.entity.dto.GetTopicListDto">
+
+    </select>
+
+    <select id="getDetTopics" resultMap="depMap">
 
     </select>
 </mapper>

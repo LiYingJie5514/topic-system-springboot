@@ -8,13 +8,17 @@ import java.io.Serializable;
 public class TeacherTopicVO implements Serializable {
     private static final long serialVersionUID = 4905330782764302587L;
 
+    private String topicId;
+
     private String topicTitle;
 
-    private int studentNum;//选题人数
+    public String getTopicId() {
+        return topicId;
+    }
 
-    private String status;//状态
-
-    private String deadline;//截止时间
+    public void setTopicId(String topicId) {
+        this.topicId = topicId;
+    }
 
     public String getTopicTitle() {
         return topicTitle;
@@ -24,27 +28,4 @@ public class TeacherTopicVO implements Serializable {
         this.topicTitle = topicTitle;
     }
 
-    public int getStudentNum() {
-        return studentNum;
-    }
-
-    public void setStudentNum(int studentNum) {
-        this.studentNum = studentNum;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getDeadline() {
-        return deadline;
-    }
-
-    public void setDeadline(String deadline) {
-        this.deadline = deadline;
-    }
 }

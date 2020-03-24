@@ -11,10 +11,10 @@ public interface StudentTopicService {
     BaseResponse selectTopic(String topicId, String studentId);
 
     /**
-     * 退选
+     * 审核
      * @return
      */
-    int quitTopic(String topicId,String studentId);
+    int check(String topicId,String studentId,int status);
 
 
 

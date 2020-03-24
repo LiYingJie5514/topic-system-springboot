@@ -6,6 +6,7 @@ import com.system.yyn.topicsystem.service.UserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @description: 用户信息维护接口
@@ -37,6 +38,12 @@ public class UserServiceImpl implements UserService {
     public User getUserInfo(User user) {
         User userInfo = userMapper.getUserInfo(user);
         return userInfo;
+    }
+
+    @Override
+    public List<User> getUserList(User user) {
+        List<User> userList = userMapper.getUserByUserType(user.getUserType());
+        return userList;
     }
 
 }

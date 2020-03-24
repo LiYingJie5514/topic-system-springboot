@@ -3,7 +3,7 @@
 <mapper namespace="com.system.yyn.topicsystem.mapper.StudentTopicMapper">
 
     <insert id="insert">
-        insert into student_topic (student_id,topic_id,status) values (#{studentId},#{topicId},#{status});
+        insert into student_topic (student_id,topic_id,status,reason) values (#{studentId},#{topicId},#{status},#{reason});
     </insert>
 
     <update id="update" parameterType="com.system.yyn.topicsystem.entity.po.StudentTopic">

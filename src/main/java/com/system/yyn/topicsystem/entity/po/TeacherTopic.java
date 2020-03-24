@@ -12,7 +12,6 @@ public class TeacherTopic implements Serializable {
 
     private String topicId;
 
-
     public String getTeacherId() {
         return teacherId;
     }
