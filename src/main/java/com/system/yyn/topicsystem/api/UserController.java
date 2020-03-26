@@ -63,25 +63,24 @@ public class UserController {
             return "login";
         } else {
             String userType = user1.getUserType();
+            request.getSession().setAttribute("username", user1.getUserName());
+            request.getSession().setAttribute("cellphone", user1.getCellphone());
             //学生
             if (userType.equals("0")) {
-                request.getSession().setAttribute("username", user1.getUserName());
-                request.getSession().setAttribute("cellphone", user1.getCellphone());
                 return "index";
             }
             //教师
             else if (userType.equals("1")) {
-                request.getSession().setAttribute("username", user1.getUserName());
-                request.getSession().setAttribute("cellphone", user1.getCellphone());
                 return "admin/admin";
             }
             //系主任
-            else if (userType.equals("3")) {
+            else if (userType.equals("2")) {
 
             }
             //管理员
-            else if (userType.equals("4")) {
-
+            else if (userType.equals("3")) {
+                //查询公告
+                return "redirect:/sys/queryBulletins";
             }
             request.setAttribute("error", "用户类型错误");
             return "login";

@@ -9,7 +9,7 @@
     </resultMap>
 
     <insert id="insert">
-        insert into bulletin (title,content) values (#{title},#{title})
+        insert into bulletin (title,content) values (#{title},#{content})
     </insert>
 
     <update id="update" parameterType="com.system.yyn.topicsystem.entity.po.Bulletin">

@@ -30,7 +30,7 @@
 
     <update id="updateTopicCheck">
         update topic set
-        status = #{status},
+        topic_status = #{status},
         comment = #{comment}
         where topic_id = #{topicId}
     </update>

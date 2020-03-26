@@ -33,9 +33,8 @@ public class TeacherTopicServiceImpl implements TeacherTopicService {
         Topic topic = new Topic();
         topic.setTopicTitle(request.getTopicTitle());
         topic.setTopicContent(request.getTopicContent());
-        topic.setTopicStatus(0);
+        topic.setStatus("0");
         topic.setTopicPeriod(BaseDateUtil.getCurDateYYYY());
-        topic.setDeadline(BaseDateUtil.getDateTime(request.getDeadline()));
         int insert = topicMapper.insert(topic);
 
         TeacherTopic teacherTopic = new TeacherTopic();
@@ -55,8 +54,7 @@ public class TeacherTopicServiceImpl implements TeacherTopicService {
         topic.setTopicId(Long.parseLong(request.getTopicId()));
         topic.setTopicContent(request.getTopicContent());
         topic.setTopicTitle(request.getTopicTitle());
-        topic.setTopicStatus(Integer.parseInt(request.getTopicStatus()));
-        topic.setDeadline(BaseDateUtil.getDateTime(request.getDeadline()));
+        topic.setStatus(request.getTopicStatus());
         int update = topicMapper.update(topic);
         return update;
     }

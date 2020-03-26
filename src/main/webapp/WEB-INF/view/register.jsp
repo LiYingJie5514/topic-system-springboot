@@ -117,7 +117,6 @@
 								<option value="0" selected>学 生</option>
 								<option value="1">教师</option>
 								<option value="2">系主任</option>
-								<option value="3">管理员</option>
 							</select>
 						</td>
 						<td width="112" id="v0">&nbsp;</td>

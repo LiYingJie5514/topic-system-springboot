@@ -91,7 +91,7 @@
 </head>
 
 <body>
-<%@ include file="adminheader.jsp" %>
+<%@ include file="sysheader.jsp" %>
 <div>
     <form action="adminGood/fuzzy" method="post">
         <table id="table1">
