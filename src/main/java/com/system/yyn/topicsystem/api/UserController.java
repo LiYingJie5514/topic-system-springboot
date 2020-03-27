@@ -155,5 +155,16 @@ public class UserController {
         return "redirect:/userInfo/userInfo";
     }
 
+    /**
+     * 退出
+     * @return
+     */
+    @RequestMapping("/exit")
+    public String exit(HttpServletRequest request){
+        request.getSession().removeAttribute("cellphone");
+        request.getSession().removeAttribute("username");
+        return "login";
+    }
+
 
 }

@@ -20,7 +20,7 @@
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
 	<style type="text/css">
-		h1 {
+		h3 {
 			clear: both;
 			margin-left: 460px;
 		}
@@ -73,7 +73,7 @@
 
 <body>
 <%@ include file="sysheader.jsp"%>
-<h1>公告列表</h1>
+<h3>公告列表</h3>
 <hr>
 <form action="" method="post">
 	<c:if test="${empty bulletins}">
