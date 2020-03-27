@@ -22,4 +22,6 @@ public interface TopicMapper {
     List<DepTopicVO> getDetTopics(String status);
 
     int updateTopicCheck(Topic topic);
+
+    int delete(String topicId);
 }

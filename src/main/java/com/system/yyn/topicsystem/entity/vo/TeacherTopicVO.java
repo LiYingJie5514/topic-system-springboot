@@ -10,7 +10,13 @@ public class TeacherTopicVO implements Serializable {
 
     private String topicId;
 
+    private String teacherId;
+
     private String topicTitle;
+
+    private String period;
+
+    private String status;
 
     public String getTopicId() {
         return topicId;
@@ -28,4 +34,27 @@ public class TeacherTopicVO implements Serializable {
         this.topicTitle = topicTitle;
     }
 
+    public String getPeriod() {
+        return period;
+    }
+
+    public void setPeriod(String period) {
+        this.period = period;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getTeacherId() {
+        return teacherId;
+    }
+
+    public void setTeacherId(String teacherId) {
+        this.teacherId = teacherId;
+    }
 }

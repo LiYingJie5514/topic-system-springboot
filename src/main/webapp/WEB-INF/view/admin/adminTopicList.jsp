@@ -49,7 +49,7 @@
         }
 
         #header {
-            background-color: green;
+            background-color: red;
             color: white;
             font-weight: bold;
             text-align: center;
@@ -63,10 +63,6 @@
 
         .chb {
             text-align: center;
-        }
-
-        div {
-            margin: 2% auto
         }
 
         caption {
@@ -93,32 +89,47 @@
 <body>
 <%@ include file="adminheader.jsp" %>
 <div>
-    <form action="adminGood/fuzzy" method="post">
+    <%--<form action="adminUser/queryTopics" method="post">
         <table id="table1">
-            <caption>商品信息管理</caption>
             <tr>
-                <td>关键字:<input type="text" name="goods"/>&nbsp;&nbsp;<input
-                        type="submit" value="查询">&nbsp;&nbsp;<a
-                        href="adminGood/insertGoods"><input type="button" value="添加商品"></a></td>
+                <td>题目名称:<input type="text" id="topicTitle" name="topicTitle"/>&nbsp;&nbsp;<input
+                        type="submit" value="查询">&nbsp;&nbsp;
+                </td>
             </tr>
         </table>
-    </form>
+    </form>--%>
+    <br/>
     <form action="adminGood/mdel" method="post">
         <table>
             <tr id="header">
-<%--                <td><input type="checkbox" id="all" onclick="checkall()"/></td>--%>
                 <td>课题编号</td>
                 <td>课题名称</td>
+                <td>年级</td>
+                <td>审核状态</td>
                 <td>操作</td>
             </tr>
             <c:forEach var="topic" items="${topics}" begin="0"
                        end="${topics.size()}">
                 <tr>
-                    <%--<td class="chb"><input type="checkbox" name="chb"
-                                           value="${goods.id}"></td>--%>
 
-                    <td>${topic.topicId}</td>
-                    <td>${topic.topicTitle}</td>
+                    <td align="center">${topic.topicId}</td>
+                    <td align="center">${topic.topicTitle}</td>
+                    <td align="center">${topic.period}</td>
+                    <td align="center">
+                        <c:choose>
+                            <c:when test="${topic.status eq 0}">
+                                待审核
+                            </c:when>
+                            <c:when test="${topic.status eq 1}">
+                                审核通过
+                            </c:when>
+                            <c:when test="${topic.status eq 2}">
+                                审核不通过
+                            </c:when>
+                            <c:otherwise></c:otherwise>
+                        </c:choose>
+
+                    </td>
                     <td style="text-align: center;">
                         <a href="adminUser/toUpdate?id=${topic.topicId}">修改</a>
                         <br>
@@ -128,11 +139,6 @@
                 </tr>
 
             </c:forEach>
-           <%-- <tr style="text-align: center;">
-                <td><input type="submit" value="删除"/></td>
-                <td colspan="8"><a href="adminUser/list">用户信息管理</a></td>
-                <td><a href="/adminHome">管理首页</a></td>
-            </tr>--%>
         </table>
     </form>
 

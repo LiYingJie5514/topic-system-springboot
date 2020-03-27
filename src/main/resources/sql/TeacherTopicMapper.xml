@@ -3,17 +3,25 @@
 <mapper namespace="com.system.yyn.topicsystem.mapper.TeacherTopicMapper">
 
     <resultMap id="voMap" type="com.system.yyn.topicsystem.entity.vo.TeacherTopicVO">
+        <result property="topicId" column="topic_id"/>
+        <result property="teacherId" column="teacher_id"/>
         <result property="topicTitle" column="topic_title"/>
-        <result property="studentNum" column="student_num"/>
-        <result property="status" column="status"/>
+        <result property="status" column="topic_status"/>
+        <result property="period" column="topic_period"/>
     </resultMap>
 
     <insert id="insert">
-        insert into teacher_topic values (#{teacherId},#{topicId})
+        insert into teacher_topic (teacher_id,topic_id) values (#{teacherId},#{topicId})
     </insert>
 
-    <select id="getTopicList" resultType="com.system.yyn.topicsystem.entity.vo.TeacherTopicVO">
+    <delete id="delete">
+        delete from teacher_topic where teacher_id = #{teacherId} and topic_id = #{topicId}
+    </delete>
 
+    <select id="getTopicList" resultMap="voMap">
+        select tt.topic_id,tt.teacher_id,topic_title,topic_period,topic_status from teacher_topic tt,topic t
+        where teacher_id = #{teacherId}
+        and tt.topic_id = t.topic_id
     </select>
 
 </mapper>

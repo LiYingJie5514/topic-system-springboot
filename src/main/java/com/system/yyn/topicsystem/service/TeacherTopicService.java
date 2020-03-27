@@ -11,6 +11,7 @@ public interface TeacherTopicService {
 
     /**
      * 添加课题
+     *
      * @param request
      * @return
      */
@@ -18,13 +19,24 @@ public interface TeacherTopicService {
 
     /**
      * 修改课题
+     *
      * @param request
      * @return
      */
     int updateTopic(TeacherUpdateTopicRequest request);
 
     /**
+     * 删除课题
+     *
+     * @param teacherId
+     * @param topicId
+     * @return
+     */
+    int delTopic(String teacherId, String topicId);
+
+    /**
      * 课题列表
+     *
      * @param request
      * @return
      */

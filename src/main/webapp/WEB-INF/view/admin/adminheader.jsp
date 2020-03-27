@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 	
-  <link rel="stylesheet" href="../css/1.css" type="text/css"></link>
+  <link rel="stylesheet" href="../../../css/1.css" type="text/css"></link>
   
   <script type="text/javascript" src="../js/jquery-1.8.3.js"></script>
   
@@ -46,9 +46,8 @@
 
   <div id="menu">
     <ul>
-        <li><a href="/adminUser/queryTopics">首页</a></li>
+        <li><a href="/common/queryBulletins">首页</a></li>
         <li><a href="/adminUser/queryTopics">我的课题</a></li>
-        <li><a href="/adminAddTopic">课题审核</a></li>
         <li><a href="/adminAddTopic">添加课题</a></li>
         <li><a href="/userInfo/userInfo">个人信息</a></li>
     </ul>

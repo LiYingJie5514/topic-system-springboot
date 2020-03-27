@@ -40,7 +40,7 @@ public class TeacherController {
         addTopicRequest.setTeacherId(username);
         int result = teacherTopicService.addTopic(addTopicRequest);
         if (result == 1) {
-            return "admin/admin";
+            return "redirect:/adminUser/queryTopics";
         }
         return "admin/adminAddTopic";
     }
@@ -83,6 +83,24 @@ public class TeacherController {
     public String updateTopic(Topic topicInfo,HttpServletRequest request){
 
         int result = topicService.updateTopicInfo(topicInfo);
+        if(result == 1){
+            request.setAttribute("success", "修改成功");
+        } else {
+            request.setAttribute("error", "修改失败");
+        }
+        return "redirect:/adminUser/queryTopics";
+    }
+
+    /**
+     * 删除课题
+     * @param request
+     * @return
+     */
+    @RequestMapping("/delTopic")
+    public String delTopic(HttpServletRequest request){
+        String id = request.getParameter("id");
+        String cellphone = (String)request.getSession().getAttribute("cellphone");
+        int result = teacherTopicService.delTopic(cellphone, id);
         if(result == 1){
             request.setAttribute("success", "修改成功");
         } else {

@@ -61,13 +61,14 @@ public class CommonController {
     public String toBulletinList(HttpServletRequest request){
         List<Bulletin> list = bulletinService.getList();
         request.setAttribute("bulletins",list);
-        return "";//公告列表页面
+        return "bulList";//公告列表页面
     }
 
     @RequestMapping("/common/bulletinInfo")
     public String bulletinInfo(Bulletin bulletin,HttpServletRequest request){
         Bulletin select = bulletinService.select(bulletin);
-        request.setAttribute("bulletin",select);
-        return "";//公告展示页面
+        request.setAttribute("title",select.getTitle());
+        request.setAttribute("content",select.getContent());
+        return "bulInfo";//公告展示页面
     }
 }

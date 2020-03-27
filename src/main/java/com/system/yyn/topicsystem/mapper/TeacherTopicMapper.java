@@ -9,5 +9,7 @@ public interface TeacherTopicMapper {
 
     int insert(TeacherTopic teacherTopic);
 
+    int delete(TeacherTopic teacherTopic);
+
     List<TeacherTopicVO> getTopicList(String teacherId);
 }

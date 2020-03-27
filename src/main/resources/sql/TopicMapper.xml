@@ -17,8 +17,8 @@
     </resultMap>
 
     <insert id="insert">
-        insert into topic (topic_title,topic_content,topic_period)
-        values (#{topicTitle},#{topicContent},#{topicPeriod})
+        insert into topic (topic_title,topic_content,topic_period,topic_status)
+        values (#{topicTitle},#{topicContent},#{topicPeriod},#{status})
     </insert>
 
     <update id="update" parameterType="com.system.yyn.topicsystem.entity.po.Topic">
@@ -34,6 +34,10 @@
         comment = #{comment}
         where topic_id = #{topicId}
     </update>
+
+    <delete id="delete">
+        delete from topic where topic_id = #{topicId}
+    </delete>
 
     <select id="getId" resultType="java.lang.Long">
         SELECT LAST_INSERT_ID()

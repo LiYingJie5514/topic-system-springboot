@@ -60,6 +60,17 @@ public class TeacherTopicServiceImpl implements TeacherTopicService {
     }
 
     @Override
+    public int delTopic(String teacherId, String topicId) {
+
+        topicMapper.delete(topicId);
+        TeacherTopic teacherTopic = new TeacherTopic();
+        teacherTopic.setTeacherId(teacherId);
+        teacherTopic.setTopicId(topicId);
+        teacherTopicMapper.delete(teacherTopic);
+        return 1;
+    }
+
+    @Override
     public List<TeacherTopicVO> getTopicList(TeacherGetTopicsRequest request) {
         List<TeacherTopicVO> topicList = teacherTopicMapper.getTopicList(request.getTeacherId());
         return topicList;

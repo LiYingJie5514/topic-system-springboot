@@ -65,13 +65,14 @@ public class UserController {
             String userType = user1.getUserType();
             request.getSession().setAttribute("username", user1.getUserName());
             request.getSession().setAttribute("cellphone", user1.getCellphone());
+            request.getSession().setAttribute("usertype", user1.getUserType());
             //学生
             if (userType.equals("0")) {
                 return "index";
             }
             //教师
             else if (userType.equals("1")) {
-                return "admin/admin";
+                return "redirect:/common/queryBulletins";
             }
             //系主任
             else if (userType.equals("2")) {
