@@ -32,14 +32,10 @@ public class SystemController {
      * @return
      */
     @RequestMapping("/sys/getUserList")
-    public String getUserList(HttpServletRequest request) {
-
-        String type = request.getParameter("type");
-        User user = new User();
-        user.setUserType(type);
+    public String getUserList(User user,HttpServletRequest request) {
         List<User> userList = userService.getUserList(user);
         request.setAttribute("userList", userList);
-        return "";//用户列表
+         return "system/sysUserList";//用户列表
     }
 
     /**
@@ -121,5 +117,20 @@ public class SystemController {
             request.setAttribute("error", "删除失败");
         }
         return "redirect:/sys/queryBulletins";//公告列表
+    }
+
+    @RequestMapping("/sys/deleteUser")
+    public String delUser(HttpServletRequest request){
+        String cellphone = request.getParameter("cellphone");
+        User user = new User();
+        user.setCellphone(cellphone);
+        int result = userService.delUser(user);
+        return "redirect:/sys/getUserList";
+    }
+
+    @RequestMapping("/sys/updateUser")
+    public String updateUser(User user,HttpServletRequest request){
+        int i = userService.updateUser(user);
+        return "redirect:/sys/getUserList";
     }
 }

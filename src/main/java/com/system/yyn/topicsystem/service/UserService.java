@@ -41,4 +41,11 @@ public interface UserService {
      */
     List<User> getUserList(User user);
 
+    /**
+     * 删除用户信息
+     * @param user
+     * @return
+     */
+    int delUser(User user);
+
 }

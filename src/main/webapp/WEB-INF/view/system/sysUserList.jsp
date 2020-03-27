@@ -49,7 +49,7 @@
         }
 
         #header {
-            background-color: green;
+            background-color: red;
             color: white;
             font-weight: bold;
             text-align: center;
@@ -65,9 +65,6 @@
             text-align: center;
         }
 
-        div {
-            margin: 2% auto
-        }
 
         caption {
             font-size: 20px;
@@ -93,46 +90,67 @@
 <body>
 <%@ include file="sysheader.jsp" %>
 <div>
-    <form action="adminGood/fuzzy" method="post">
+    <form action="sys/getUserList" method="post">
         <table id="table1">
-            <caption>商品信息管理</caption>
             <tr>
-                <td>关键字:<input type="text" name="goods"/>&nbsp;&nbsp;<input
-                        type="submit" value="查询">&nbsp;&nbsp;<a
-                        href="adminGood/insertGoods"><input type="button" value="添加商品"></a></td>
+                <td>手机号:&nbsp;<input type="text" id="cellphone" name="cellphone"/>
+                    用户类型:&nbsp;<select name="userType" id="userType" >
+                        <option value="10" selected>全部</option>
+                        <option value="0">学 生</option>
+                        <option value="1">教师</option>
+                        <option value="2">系主任</option>
+                        <option value="3">管理员</option>
+                    </select>
+                    &nbsp;&nbsp;<input type="submit" value="查询">&nbsp;&nbsp;
+                </td>
             </tr>
         </table>
     </form>
+    <br>
     <form action="adminGood/mdel" method="post">
         <table>
             <tr id="header">
-<%--                <td><input type="checkbox" id="all" onclick="checkall()"/></td>--%>
-                <td>课题编号</td>
-                <td>课题名称</td>
+                <td>用户名</td>
+                <td>用户密码</td>
+                <td>用户类型</td>
+                <td>用户手机号</td>
                 <td>操作</td>
             </tr>
-            <c:forEach var="topic" items="${topics}" begin="0"
-                       end="${topics.size()}">
+            <c:forEach var="user" items="${userList}" begin="0"
+                       end="${userList.size()}">
                 <tr>
                     <%--<td class="chb"><input type="checkbox" name="chb"
                                            value="${goods.id}"></td>--%>
 
-                    <td>${topic.topicId}</td>
-                    <td>${topic.topicTitle}</td>
+                    <td align="center">${user.userName}</td>
+                    <td align="center">${user.passWord}</td>
+                    <td align="center">
+                        <c:choose>
+                            <c:when test="${user.userType eq 0}">
+                                学生
+                            </c:when>
+                            <c:when test="${user.userType eq 1}">
+                                教师
+                            </c:when>
+                            <c:when test="${user.userType eq 2}">
+                                系主任
+                            </c:when>
+                            <c:when test="${user.userType eq 3}">
+                                管理员
+                            </c:when>
+                            <c:otherwise></c:otherwise>
+                        </c:choose>
+                    </td>
+                    <td align="center">${user.cellphone}</td>
                     <td style="text-align: center;">
-                        <a href="adminUser/toUpdate?id=${topic.topicId}">修改</a>
+                        <a href="/userInfo/userInfo?type=1&phone=${user.cellphone}">修改</a>
                         <br>
                         <br>
-                        <a href="adminUser/delTopic?id=${topic.topicId}" class="del">删除</a>
+                        <a href="/sys/deleteUser?cellphone=${user.cellphone}" class="del">删除</a>
                     </td>
                 </tr>
 
             </c:forEach>
-           <%-- <tr style="text-align: center;">
-                <td><input type="submit" value="删除"/></td>
-                <td colspan="8"><a href="adminUser/list">用户信息管理</a></td>
-                <td><a href="/adminHome">管理首页</a></td>
-            </tr>--%>
         </table>
     </form>
 

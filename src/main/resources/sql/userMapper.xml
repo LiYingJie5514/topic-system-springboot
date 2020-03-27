@@ -13,13 +13,22 @@
 		insert into user(user_name,password,cellphone,user_type) values(#{userName},#{passWord},#{cellphone},#{userType})
 	</insert>
 
-    <update id="update">
-        update user set
-        <if test="passWord != '' and passWord != null">
-            password=#{passWord},
-        </if>
-        user_name=#{userName}
-        where cellphone=#{cellphone}
+    <update id="update" parameterType="com.system.yyn.topicsystem.entity.po.User">
+        update user
+        <set>
+            <trim suffix="" suffixOverrides=",">
+                <if test="passWord != '' and passWord != null">
+                    password=#{passWord},
+                </if>
+                <if test="userName != '' and userName != null">
+                    user_name=#{userName},
+                </if>
+                <if test="userType != '' and userType != null">
+                    user_type=#{userType},
+                </if>
+            </trim>
+        </set>
+        where cellphone = #{cellphone}
     </update>
 
     <delete id="delete">
@@ -42,8 +51,16 @@
 		select * from user where cellphone = #{cellphone}
 	</select>
 
-    <select id="getUserByUserType" resultMap="baseMap">
-		select * from user where user_type = #{type}
+    <select id="getUserByUserType" resultMap="baseMap" parameterType="com.system.yyn.topicsystem.entity.po.User">
+		select * from user where
+        1=1
+        <if test="cellphone != '' and cellphone != null">
+            and cellphone = #{cellphone}
+        </if>
+        <if test="userType != '' and userType != null and userType != 10">
+            and user_type = #{userType}
+        </if>
+        order by user_type
 	</select>
 
 </mapper>

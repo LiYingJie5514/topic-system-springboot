@@ -20,5 +20,5 @@ public interface UserMapper {
 
     User getUserInfo(User user);
 
-    List<User> getUserByUserType(String type);
+    List<User> getUserByUserType(User user);
 }

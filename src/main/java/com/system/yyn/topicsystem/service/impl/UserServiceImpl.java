@@ -42,8 +42,14 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> getUserList(User user) {
-        List<User> userList = userMapper.getUserByUserType(user.getUserType());
+        List<User> userList = userMapper.getUserByUserType(user);
         return userList;
+    }
+
+    @Override
+    public int delUser(User user) {
+        int delete = userMapper.delete(user);
+        return delete;
     }
 
 }

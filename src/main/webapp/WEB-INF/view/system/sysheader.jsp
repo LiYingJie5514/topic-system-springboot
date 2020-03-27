@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 	
-  <link rel="stylesheet" href="../css/1.css" type="text/css"></link>
+  <link rel="stylesheet" href="../../../css/1.css" type="text/css"></link>
   
   <script type="text/javascript" src="../js/jquery-1.8.3.js"></script>
   
@@ -36,10 +36,10 @@
   
 	<div id="top"  >
 		<span id="span1" style="margin-left: 450px;" >
-			<a href="/adminHome">选课系统教师端</a>
+			<a href="/sys/queryBulletins">选课系统教师端</a>
 		</span>
 		<span id="span2" style="margin-right: 450px;">
-			<span id="span3"><a href="adminlogin">登录</a> | <a href="register">注册</a></span>
+			<span id="span3"><a href="/login">登录</a> | <a href="register">注册</a></span>
 			<span id="span4">欢迎登录！${username}|<a href="userInfo/exit">退出</a></span>
 		</span>
     </div>
@@ -48,7 +48,7 @@
     <ul>
         <li><a href="/sys/queryBulletins">公告管理</a></li>
         <li><a href="/sys/toSend">发布公告</a></li>
-        <li><a href="/sys/queryBulletins">用户管理</a></li>
+        <li><a href="/sys/getUserList">用户管理</a></li>
     </ul>
   </div>
   </div>

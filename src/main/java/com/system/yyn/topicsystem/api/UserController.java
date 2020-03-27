@@ -89,26 +89,47 @@ public class UserController {
 
     /**
      * 获取用户信息，跳转修改用户信息页面
+     *
      * @param request
      * @return
      */
     @RequestMapping("/userInfo")
     public String userInfo(HttpServletRequest request) {
 
-        String cellphone = (String) request.getSession().getAttribute("cellphone");
+        String type = request.getParameter("type");
         User user = new User();
-        user.setCellphone(cellphone);
-        User userInfo = userService.getUserInfo(user);
-        if (null != userInfo) {
-            request.setAttribute("user", userInfo);
-            return "updateUserInfo";
+        if (StringUtils.isNotBlank(type) && type.equals("1")) {
+            String phone = request.getParameter("phone");
+            user.setCellphone(phone);
+        } else {
+            String cellphone = (String) request.getSession().getAttribute("cellphone");
+            user.setCellphone(cellphone);
         }
-        request.setAttribute("error", "未查到用户信息");
-        return "login";
+        User userInfo = userService.getUserInfo(user);
+        //系统管理员修改用户信息
+        if (StringUtils.isNotBlank(type) && type.equals("1")) {
+            if (null != userInfo) {
+                request.setAttribute("user", userInfo);
+                return "system/sysUpdateUserInfo";
+            } else {
+                request.setAttribute("error", "未查到用户信息");
+                return "redirect:/sys/getUserList";
+            }
+        } else {
+            if (null != userInfo) {
+                request.setAttribute("user", userInfo);
+                return "updateUserInfo";
+            } else {
+                request.setAttribute("error", "未查到用户信息");
+                return "login";
+            }
+        }
+
     }
 
     /**
      * 修改用户信息
+     *
      * @param request
      * @return
      */
