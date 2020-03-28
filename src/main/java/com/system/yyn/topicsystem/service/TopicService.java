@@ -37,7 +37,7 @@ public interface TopicService {
      * @param status
      * @return
      */
-    List<DepTopicVO> getDepTopics(String status);
+    List<DepTopicVO> getDepTopics(String status,String cellphone);
 
     /**
      * 审核课题

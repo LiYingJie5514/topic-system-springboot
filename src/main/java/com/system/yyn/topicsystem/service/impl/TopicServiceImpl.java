@@ -42,14 +42,14 @@ public class TopicServiceImpl implements TopicService {
     }
 
     @Override
-    public List<DepTopicVO> getDepTopics(String status) {
-        List<DepTopicVO> detTopics = topicMapper.getDetTopics(status);
+    public List<DepTopicVO> getDepTopics(String status,String cellphone) {
+        List<DepTopicVO> detTopics = topicMapper.getDetTopics(status,cellphone);
         return detTopics;
     }
 
     @Override
     public int checkTopic(Topic topic) {
-
-        return 0;
+        int result = topicMapper.updateTopicCheck(topic);
+        return result;
     }
 }

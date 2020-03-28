@@ -29,27 +29,29 @@ public class DepartmentController {
     @RequestMapping("/dep/queryTopics")
     public String queryTopicList(HttpServletRequest request) {
         String status = request.getParameter("status");
-        List<DepTopicVO> depTopics = topicService.getDepTopics(status);
+        String cellphone = request.getParameter("cellphone");
+        List<DepTopicVO> depTopics = topicService.getDepTopics(status,cellphone);
         request.setAttribute("topics", depTopics);
         return "dep/depTopicList";
+    }
+
+    @RequestMapping("/dep/toCheck")
+    public String toCheckPage(HttpServletRequest request) {
+        String topicId = request.getParameter("topicId");
+        Topic topicInfo = topicService.getTopicInfo(topicId);
+        request.setAttribute("topic", topicInfo);
+        return "dep/depCheckTopic";
     }
 
     /**
      * 课题审核
      *
+     * @param topic
      * @param request
      * @return
      */
     @RequestMapping("/dep/checkTopic")
-    public String checkTopic(HttpServletRequest request) {
-        String topicId = request.getParameter("topicId");
-        String type = request.getParameter("type");
-        String comment = request.getParameter("comment");
-
-        Topic topic = new Topic();
-        topic.setTopicId(Long.parseLong(topicId));
-        topic.setStatus(type);
-        topic.setComment(comment);
+    public String checkTopic(Topic topic,HttpServletRequest request) {
         int result = topicService.checkTopic(topic);
         if (result == 1) {
             request.setAttribute("success", "审核成功");

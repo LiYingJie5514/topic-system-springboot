@@ -90,16 +90,15 @@
 <body>
 <%@ include file="depheader.jsp" %>
 <div>
-    <form action="sys/getUserList" method="post">
+    <form action="/dep/queryTopics" method="post">
         <table id="table1">
             <tr>
                 <td>手机号:&nbsp;<input type="text" id="cellphone" name="cellphone"/>
-                    用户类型:&nbsp;<select name="userType" id="userType" >
+                    课题状态:&nbsp;<select name="status" id="status" >
                         <option value="10" selected>全部</option>
-                        <option value="0">学 生</option>
-                        <option value="1">教师</option>
-                        <option value="2">系主任</option>
-                        <option value="3">管理员</option>
+                        <option value="0">待审核</option>
+                        <option value="1">通过</option>
+                        <option value="2">未通过</option>
                     </select>
                     &nbsp;&nbsp;<input type="submit" value="查询">&nbsp;&nbsp;
                 </td>
@@ -142,7 +141,7 @@
                         </c:choose>
                     </td>
                     <td style="text-align: center;">
-                        <a href="/userInfo/userInfo?type=1&phone=${user.cellphone}">审核</a>
+                        <a href="/dep/toCheck?topicId=${topic.topicId}">审核</a>
                     </td>
                 </tr>
 
