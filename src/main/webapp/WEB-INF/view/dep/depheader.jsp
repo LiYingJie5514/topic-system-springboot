@@ -26,10 +26,12 @@
 	var error = '${error}';
 	if(error != '')
 		alert(error);
-	
-	var success = '${success}';
-	if(success != '')
-		alert(success);
+
+    var success = '${success}';
+    if(success != ''){
+        alert(success);
+        window.location.href="/login";
+    }
  </script>
   </c:if>
   <div style="width: 100%">

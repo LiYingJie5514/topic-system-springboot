@@ -5,7 +5,7 @@
   <script type="text/javascript" src="js/footer.js"></script>
 <head>
     <style type="text/css">
-        .fixed{ position:fixed; left:0px; bottom:0px; width:100%; height:50px; background-color:red; z-index:9999;}
+        .fixed{ position:fixed; left:0px; bottom:0px; width:100%; height:50px; background-color:lightskyblue; z-index:9999;}
     </style>
 </head>
   

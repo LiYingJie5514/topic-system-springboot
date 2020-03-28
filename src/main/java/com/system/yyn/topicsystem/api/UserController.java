@@ -115,6 +115,19 @@ public class UserController {
     @RequestMapping("/userInfo")
     public String userInfo(HttpServletRequest request) {
 
+        //接收修改接口返回的结果
+        String success = (String) request.getSession().getAttribute("success");
+        String error = (String) request.getSession().getAttribute("error");
+        if (StringUtils.isNotBlank(success) && success.equals("1")) {
+            request.setAttribute("success", "修改成功,需重新登录");
+            request.getSession().removeAttribute("success");
+        }
+        if (StringUtils.isNotBlank(error) && error.equals("1")) {
+            request.setAttribute("error", "修改失败");
+            request.getSession().removeAttribute("error");
+        }
+
+        //查询用户信息
         String type = request.getParameter("type");
         User user = new User();
         if (StringUtils.isNotBlank(type) && type.equals("1")) {
@@ -154,23 +167,23 @@ public class UserController {
      */
     @RequestMapping("/updateUserInfo")
     public String updateUserInfo(HttpServletRequest request) {
+
         String userName = request.getParameter("userName");
         String newPassword = request.getParameter("newPassword");
         String cellphone = request.getParameter("cellphone");
-        User user = new User();
-        user.setCellphone(cellphone);
-        user.setUserName(userName);
+
+        User update = new User();
+        update.setCellphone(cellphone);
+        update.setUserName(userName);
         if (StringUtils.isNotBlank(newPassword)) {
-            user.setPassWord(newPassword);
+            update.setPassWord(newPassword);
         }
-        int result = userService.updateUser(user);
+        int result = userService.updateUser(update);
         if (result == 1) {
-            request.setAttribute("success", "用户信息修改成功");
+            request.getSession().setAttribute("success", "1");
         } else {
-            request.setAttribute("error", "用户信息修改失败");
+            request.getSession().setAttribute("error", "1");
         }
-        User userInfo = userService.getUserInfo(user);
-        request.setAttribute("user", userInfo);
         return "redirect:/userInfo/userInfo";
     }
 

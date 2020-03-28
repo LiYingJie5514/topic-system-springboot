@@ -3,6 +3,7 @@ package com.system.yyn.topicsystem.api;
 import com.system.yyn.topicsystem.entity.po.Topic;
 import com.system.yyn.topicsystem.entity.vo.DepTopicVO;
 import com.system.yyn.topicsystem.service.TopicService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -30,6 +31,9 @@ public class DepartmentController {
     public String queryTopicList(HttpServletRequest request) {
         String status = request.getParameter("status");
         String cellphone = request.getParameter("cellphone");
+        if(StringUtils.isNotBlank(cellphone)){
+            cellphone = cellphone.trim();
+        }
         List<DepTopicVO> depTopics = topicService.getDepTopics(status,cellphone);
         request.setAttribute("topics", depTopics);
         return "dep/depTopicList";

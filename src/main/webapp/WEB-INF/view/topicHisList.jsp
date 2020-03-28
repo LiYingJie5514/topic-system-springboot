@@ -49,7 +49,7 @@
         }
 
         #header {
-            background-color: red;
+            background-color: lightskyblue;
             color: white;
             font-weight: bold;
             text-align: center;

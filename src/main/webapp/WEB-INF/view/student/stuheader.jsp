@@ -28,8 +28,11 @@
 		alert(error);
 	
 	var success = '${success}';
-	if(success != '')
-		alert(success);
+	if(success != ''){
+        alert(success);
+        window.location.href="/login";
+    }
+
  </script>
   </c:if>
   <div style="width: 100%">

@@ -67,7 +67,7 @@
             and t.topic_status = #{status}
         </if>
         <if test="cellphone != null and cellphone != ''">
-            and t.teacher_id = #{cellphone}
+            and tt.teacher_id = #{cellphone}
         </if>
         order by t.topic_id
     </select>

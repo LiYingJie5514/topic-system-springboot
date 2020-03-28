@@ -36,7 +36,7 @@
   
 	<div id="top"  >
 		<span id="span1" style="margin-left: 450px;" >
-			<a href="/sys/queryBulletins">选课系统教师端</a>
+			<a href="/sys/queryBulletins">选课系统管理员端</a>
 		</span>
 		<span id="span2" style="margin-right: 450px;">
 			<span id="span3"><a href="/login">登录</a> | <a href="register">注册</a></span>
