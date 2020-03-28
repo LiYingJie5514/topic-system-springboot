@@ -3,9 +3,10 @@
 <mapper namespace="com.system.yyn.topicsystem.mapper.TopicMapper">
 
     <resultMap id="topicListMap" type="com.system.yyn.topicsystem.entity.vo.TopicVO">
+        <result property="topicId" column="topic_id"/>
         <result property="topicTitle" column="topic_title"/>
         <result property="topicPeriod" column="topic_period"/>
-        <result property="teacherName" column="username"/>
+        <result property="teacherName" column="teacher_Id"/>
     </resultMap>
 
     <resultMap id="depMap" type="com.system.yyn.topicsystem.entity.vo.DepTopicVO">
@@ -48,7 +49,15 @@
     </select>
 
     <select id="getTopicList" resultMap="topicListMap" parameterType="com.system.yyn.topicsystem.entity.dto.GetTopicListDto">
-
+        select topic.topic_id,topic_title,topic_period,teacher_Id from topic left join teacher_topic
+        on topic.topic_id = teacher_topic.topic_id
+        where 1=1
+        <if test="topicPeriod != null and topicPeriod != ''">
+            and topic.topic_period = #{topicPeriod}
+        </if>
+        <if test="topicPeriod == null or topicPeriod == ''">
+            and topic.topic_period &lt; DATE_FORMAT(NOW(), '%Y')
+        </if>
     </select>
 
     <select id="getDetTopics" resultMap="depMap">

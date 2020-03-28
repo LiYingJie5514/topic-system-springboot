@@ -9,6 +9,8 @@ import java.io.Serializable;
 public class TopicVO implements Serializable {
     private static final long serialVersionUID = 540957873289974433L;
 
+    private String topicId;
+
     private String topicTitle;
 
     private String topicPeriod;
@@ -37,5 +39,13 @@ public class TopicVO implements Serializable {
 
     public void setTeacherName(String teacherName) {
         this.teacherName = teacherName;
+    }
+
+    public String getTopicId() {
+        return topicId;
+    }
+
+    public void setTopicId(String topicId) {
+        this.topicId = topicId;
     }
 }

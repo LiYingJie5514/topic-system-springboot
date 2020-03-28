@@ -13,7 +13,7 @@
 <head>
     <base href="<%=basePath%>">
 
-    <title>课题列表</title>
+    <title>历届课题列表</title>
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="cache-control" content="no-cache">
     <meta http-equiv="expires" content="0">
@@ -49,7 +49,7 @@
         }
 
         #header {
-            background-color: green;
+            background-color: red;
             color: white;
             font-weight: bold;
             text-align: center;
@@ -65,9 +65,6 @@
             text-align: center;
         }
 
-        div {
-            margin: 2% auto
-        }
 
         caption {
             font-size: 20px;
@@ -91,51 +88,53 @@
 </head>
 
 <body>
-<%@ include file="adminheader.jsp" %>
+<c:if test="${usertype eq 0}">
+    <%@ include file="student/stuheader.jsp" %>
+</c:if>
+<c:if test="${usertype eq 1}">
+    <%@ include file="admin/adminheader.jsp" %>
+</c:if>
+<c:if test="${usertype eq 2}">
+    <%@ include file="dep/depheader.jsp" %>
+</c:if>
 <div>
-    <form action="adminGood/fuzzy" method="post">
+    <form action="/dep/queryTopics" method="post">
         <table id="table1">
-            <caption>商品信息管理</caption>
             <tr>
-                <td>关键字:<input type="text" name="goods"/>&nbsp;&nbsp;<input
-                        type="submit" value="查询">&nbsp;&nbsp;<a
-                        href="adminGood/insertGoods"><input type="button" value="添加商品"></a></td>
+                <td>手机号:&nbsp;<input type="text" id="cellphone" name="cellphone"/>
+                    课题状态:&nbsp;<select name="status" id="status" >
+                        <option value="10" selected>全部</option>
+                        <option value="0">待审核</option>
+                        <option value="1">通过</option>
+                        <option value="2">未通过</option>
+                    </select>
+                    &nbsp;&nbsp;<input type="submit" value="查询">&nbsp;&nbsp;
+                </td>
             </tr>
         </table>
     </form>
+    <br>
     <form action="adminGood/mdel" method="post">
         <table>
             <tr id="header">
-<%--                <td><input type="checkbox" id="all" onclick="checkall()"/></td>--%>
                 <td>课题编号</td>
-                <td>课题名称</td>
-                <td>操作</td>
+                <td>题目</td>
+                <td>教师手机号</td>
+                <td>年级</td>
             </tr>
             <c:forEach var="topic" items="${topics}" begin="0"
                        end="${topics.size()}">
                 <tr>
-                    <%--<td class="chb"><input type="checkbox" name="chb"
-                                           value="${goods.id}"></td>--%>
-
-                    <td>${topic.topicId}</td>
-                    <td>${topic.topicTitle}</td>
-                    <td style="text-align: center;">
-                        <a href="adminUser/toUpdate?id=${topic.topicId}">修改</a>
-                        <br>
-                        <br>
-                        <a href="adminUser/delTopic?id=${topic.topicId}" class="del">删除</a>
-                    </td>
+                    <td align="center">${topic.topicId}</td>
+                    <td align="center">${topic.topicTitle}</td>
+                    <td align="center">${topic.teacherName}</td>
+                    <td align="center">${topic.topicPeriod}</td>
                 </tr>
-
             </c:forEach>
-           <%-- <tr style="text-align: center;">
-                <td><input type="submit" value="删除"/></td>
-                <td colspan="8"><a href="adminUser/list">用户信息管理</a></td>
-                <td><a href="/adminHome">管理首页</a></td>
-            </tr>--%>
         </table>
     </form>
 
 </div>
+<%@ include file="footer.jsp" %>
 </body>
 </html>
