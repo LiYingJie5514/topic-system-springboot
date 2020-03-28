@@ -104,5 +104,6 @@
 	</c:if>
 </form>
 <div style="height: 190px"></div>
+<%@ include file="../footer.jsp" %>
 </body>
 </html>

@@ -35,11 +35,29 @@ public class UserController {
         int result = userService.regist(user);
         if (result == 1) {
             request.setAttribute("success", "注册成功");
+
             request.getSession().setAttribute("username", user.getUserName());
-            if (user.getUserType().equals("0")) {
-                return "redirect:/";
+            request.getSession().setAttribute("cellphone", user.getCellphone());
+            request.getSession().setAttribute("usertype", user.getUserType());
+            String userType = user.getUserType();
+            //学生
+            if (userType.equals("0")) {
+                return "index";
+            }
+            //教师
+            else if (userType.equals("1")) {
+                return "redirect:/common/queryBulletins";
+            }
+            //系主任
+            else if (userType.equals("2")) {
+                return "redirect:/common/queryBulletins";
+            }
+            //管理员
+            else if (userType.equals("3")) {
+                //查询公告
+                return "redirect:/sys/queryBulletins";
             } else {
-                return "redirect:/adminHome";
+                return "login";
             }
         }
         request.setAttribute("error", "●︿●用户名已存在，请重新注册！");
@@ -76,7 +94,7 @@ public class UserController {
             }
             //系主任
             else if (userType.equals("2")) {
-
+                return "redirect:/common/queryBulletins";
             }
             //管理员
             else if (userType.equals("3")) {
@@ -164,6 +182,7 @@ public class UserController {
     public String exit(HttpServletRequest request){
         request.getSession().removeAttribute("cellphone");
         request.getSession().removeAttribute("username");
+        request.getSession().removeAttribute("usertype");
         return "login";
     }
 

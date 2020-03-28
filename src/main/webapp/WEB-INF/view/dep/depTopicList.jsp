@@ -65,6 +65,7 @@
             text-align: center;
         }
 
+
         caption {
             font-size: 20px;
         }
@@ -87,33 +88,44 @@
 </head>
 
 <body>
-<%@ include file="adminheader.jsp" %>
+<%@ include file="depheader.jsp" %>
 <div>
-    <%--<form action="adminUser/queryTopics" method="post">
+    <form action="sys/getUserList" method="post">
         <table id="table1">
             <tr>
-                <td>题目名称:<input type="text" id="topicTitle" name="topicTitle"/>&nbsp;&nbsp;<input
-                        type="submit" value="查询">&nbsp;&nbsp;
+                <td>手机号:&nbsp;<input type="text" id="cellphone" name="cellphone"/>
+                    用户类型:&nbsp;<select name="userType" id="userType" >
+                        <option value="10" selected>全部</option>
+                        <option value="0">学 生</option>
+                        <option value="1">教师</option>
+                        <option value="2">系主任</option>
+                        <option value="3">管理员</option>
+                    </select>
+                    &nbsp;&nbsp;<input type="submit" value="查询">&nbsp;&nbsp;
                 </td>
             </tr>
         </table>
-    </form>--%>
-    <br/>
+    </form>
+    <br>
     <form action="adminGood/mdel" method="post">
         <table>
             <tr id="header">
                 <td>课题编号</td>
-                <td>课题名称</td>
+                <td>题目</td>
+                <td>教师手机号</td>
                 <td>年级</td>
-                <td>审核状态</td>
+                <td>课题状态</td>
                 <td>操作</td>
             </tr>
             <c:forEach var="topic" items="${topics}" begin="0"
                        end="${topics.size()}">
                 <tr>
+                    <%--<td class="chb"><input type="checkbox" name="chb"
+                                           value="${goods.id}"></td>--%>
 
                     <td align="center">${topic.topicId}</td>
                     <td align="center">${topic.topicTitle}</td>
+                    <td align="center">${topic.teacherName}</td>
                     <td align="center">${topic.period}</td>
                     <td align="center">
                         <c:choose>
@@ -121,20 +133,16 @@
                                 待审核
                             </c:when>
                             <c:when test="${topic.status eq 1}">
-                                审核通过
+                                已审核
                             </c:when>
                             <c:when test="${topic.status eq 2}">
                                 审核不通过
                             </c:when>
                             <c:otherwise></c:otherwise>
                         </c:choose>
-
                     </td>
                     <td style="text-align: center;">
-                        <a href="adminUser/toUpdate?id=${topic.topicId}">修改</a>
-                        <br>
-                        <br>
-                        <a href="adminUser/delTopic?id=${topic.topicId}" class="del">删除</a>
+                        <a href="/userInfo/userInfo?type=1&phone=${user.cellphone}">审核</a>
                     </td>
                 </tr>
 

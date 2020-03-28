@@ -39,8 +39,15 @@
 </head>
 
 <body>
+<c:if test="${usertype eq 0}">
 
-<%@ include file="admin/adminheader.jsp" %>
+</c:if>
+<c:if test="${usertype eq 1}">
+    <%@ include file="admin/adminheader.jsp" %>
+</c:if>
+<c:if test="${usertype eq 2}">
+    <%@ include file="dep/depheader.jsp" %>
+</c:if>
 <div style="margin-top: 80px;" align="center">
     <form action="userInfo/updateUserInfo" method="post">
         <table width="511px" cellspacing="4px" cellpadding="1px"
@@ -105,5 +112,6 @@
         </table>
     </form>
 </div>
+<%@ include file="footer.jsp" %>
 </body>
 </html>

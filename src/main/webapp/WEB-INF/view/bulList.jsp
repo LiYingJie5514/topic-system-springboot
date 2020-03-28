@@ -57,7 +57,7 @@
     <%@ include file="admin/adminheader.jsp" %>
 </c:if>
 <c:if test="${usertype eq 2}">
-
+    <%@ include file="dep/depheader.jsp" %>
 </c:if>
 <h3>公告列表</h3>
 <hr>
@@ -83,5 +83,6 @@
     </c:if>
 </form>
 <div style="height: 190px"></div>
+<%@ include file="footer.jsp" %>
 </body>
 </html>
