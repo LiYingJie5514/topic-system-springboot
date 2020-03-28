@@ -98,7 +98,7 @@
     <%@ include file="dep/depheader.jsp" %>
 </c:if>
 <div>
-    <form action="/dep/queryTopics" method="post">
+    <%--<form action="/dep/queryTopics" method="post">
         <table id="table1">
             <tr>
                 <td>手机号:&nbsp;<input type="text" id="cellphone" name="cellphone"/>
@@ -112,7 +112,7 @@
                 </td>
             </tr>
         </table>
-    </form>
+    </form>--%>
     <br>
     <form action="adminGood/mdel" method="post">
         <table>

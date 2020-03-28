@@ -57,24 +57,4 @@ public class StudentController {
         return "redirect:/student/getTopics";
     }
 
-    /**
-     * 退选
-     *
-     * @param httpServletRequest
-     * @return
-     */
-    @RequestMapping("/student/quit")
-    public String quitTopic(HttpServletRequest httpServletRequest) {
-        String topicId = httpServletRequest.getParameter("topicId");
-        String cellphone = (String) httpServletRequest.getSession().getAttribute("cellphone");
-        String reason = (String) httpServletRequest.getSession().getAttribute("reason");
-        int result = studentTopicService.quitTopic(topicId, cellphone, reason);
-        if (result == 1) {
-            httpServletRequest.setAttribute("success", "审核成功");
-        } else {
-            httpServletRequest.setAttribute("error", "审核失败");
-        }
-        return "redirect:/student/getTopics";
-    }
-
 }

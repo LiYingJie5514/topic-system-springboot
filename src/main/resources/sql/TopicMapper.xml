@@ -63,7 +63,7 @@
     <select id="getDetTopics" resultMap="depMap">
         select tt.topic_id,tt.teacher_id,topic_title,topic_period,topic_status from teacher_topic tt,topic t
         where tt.topic_id = t.topic_id
-        <if test="status != null and status != ''">
+        <if test="status != null and status != '' and status != 10">
             and t.topic_status = #{status}
         </if>
         <if test="cellphone != null and cellphone != ''">

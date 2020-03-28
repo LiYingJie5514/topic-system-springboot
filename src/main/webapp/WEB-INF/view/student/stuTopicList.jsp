@@ -90,16 +90,10 @@
 <body>
 <%@ include file="stuheader.jsp" %>
 <div>
-    <form action="/dep/queryTopics" method="post">
+    <form action="/student/getTopics" method="post">
         <table id="table1">
             <tr>
-                <td>手机号:&nbsp;<input type="text" id="cellphone" name="cellphone"/>
-                    课题状态:&nbsp;<select name="status" id="status" >
-                        <option value="10" selected>全部</option>
-                        <option value="0">待审核</option>
-                        <option value="1">通过</option>
-                        <option value="2">未通过</option>
-                    </select>
+                <td>手机号:&nbsp;<input type="text" id="teacherName" name="teacherName"/>
                     &nbsp;&nbsp;<input type="submit" value="查询">&nbsp;&nbsp;
                 </td>
             </tr>

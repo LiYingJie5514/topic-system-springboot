@@ -15,13 +15,11 @@ public class StudentGetTopicsDto implements Serializable {
 
     private String studentId;
 
-    private String status;
-
     private String period;
 
     public StudentGetTopicsDto(StudentGetTopicsRequest request){
-        this.teacherName = request.getTeacherName();
-        this.status = request.getStatus();
+        this.teacherName = request.getTeacherName().trim();
+        this.studentId = request.getStudentId();
     }
 
     public String getTeacherName() {
@@ -30,14 +28,6 @@ public class StudentGetTopicsDto implements Serializable {
 
     public void setTeacherName(String teacherName) {
         this.teacherName = teacherName;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
     }
 
     public String getStudentId() {

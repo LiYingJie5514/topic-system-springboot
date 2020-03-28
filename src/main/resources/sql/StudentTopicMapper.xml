@@ -24,6 +24,9 @@
     <select id="getList" resultMap="dtoMap" parameterType="com.system.yyn.topicsystem.entity.dto.StudentGetTopicsDto">
         select topic.topic_id,topic_title,topic_period,teacher_id from topic left join teacher_topic on topic.topic_id = teacher_topic.topic_id
         where topic_status = 1 and topic_period = #{period}
+        <if test="teacherName != null and teacherName != ''">
+            and teacher_id = #{teacherName}
+        </if>
     </select>
 
     <select id="get" resultType="com.system.yyn.topicsystem.entity.po.StudentTopic">

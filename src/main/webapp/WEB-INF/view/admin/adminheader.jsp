@@ -36,7 +36,7 @@
   
 	<div id="top"  >
 		<span id="span1" style="margin-left: 450px;" >
-			<a href="/adminHome">选课系统教师端</a>
+			<a href="/common/queryBulletins">选课系统教师端</a>
 		</span>
 		<span id="span2" style="margin-right: 450px;">
 			<span id="span3"><a href="adminlogin">登录</a> | <a href="register">注册</a></span>
@@ -50,6 +50,7 @@
         <li><a href="/adminUser/queryTopics">我的课题</a></li>
         <li><a href="/adminAddTopic">添加课题</a></li>
         <li><a href="/userInfo/userInfo">个人信息</a></li>
+        <li><a href="/common/getHistoryTopics">历届课题</a></li>
     </ul>
   </div>
   </div>
