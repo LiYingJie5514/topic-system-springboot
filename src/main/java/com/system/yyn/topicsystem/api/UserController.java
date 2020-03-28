@@ -42,7 +42,7 @@ public class UserController {
             String userType = user.getUserType();
             //学生
             if (userType.equals("0")) {
-                return "index";
+                return "redirect:/common/queryBulletins";
             }
             //教师
             else if (userType.equals("1")) {
