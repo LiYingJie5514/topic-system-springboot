@@ -95,7 +95,7 @@ public class DataSourceConfig {
         transactionAttributes.setProperty("insert*", PROPAGATION_REQUIRED);
         transactionAttributes.setProperty("update*", PROPAGATION_REQUIRED);
         transactionAttributes.setProperty("delete*", PROPAGATION_REQUIRED);
-        transactionAttributes.setProperty("select*", PROPAGATION_REQUIRED + ",readOnly");
+//        transactionAttributes.setProperty("select*", PROPAGATION_REQUIRED + ",readOnly");
         interceptor.setTransactionAttributes(transactionAttributes);
         return interceptor;
     }

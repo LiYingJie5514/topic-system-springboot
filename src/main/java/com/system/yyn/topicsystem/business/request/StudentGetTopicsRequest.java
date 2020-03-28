@@ -13,6 +13,8 @@ public class StudentGetTopicsRequest implements Serializable {
 
     private String status;
 
+    private String studentId;
+
     public String getTeacherName() {
         return teacherName;
     }
@@ -27,5 +29,13 @@ public class StudentGetTopicsRequest implements Serializable {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(String studentId) {
+        this.studentId = studentId;
     }
 }

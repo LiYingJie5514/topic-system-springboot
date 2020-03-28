@@ -41,7 +41,7 @@
 
 <body>
 <c:if test="${usertype eq 0}">
-
+    <%@ include file="student/stuheader.jsp" %>
 </c:if>
 <c:if test="${usertype eq 1}">
     <%@ include file="admin/adminheader.jsp" %>

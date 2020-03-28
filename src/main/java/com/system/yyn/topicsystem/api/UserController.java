@@ -86,7 +86,7 @@ public class UserController {
             request.getSession().setAttribute("usertype", user1.getUserType());
             //学生
             if (userType.equals("0")) {
-                return "index";
+                return "redirect:/common/queryBulletins";
             }
             //教师
             else if (userType.equals("1")) {
@@ -176,10 +176,11 @@ public class UserController {
 
     /**
      * 退出
+     *
      * @return
      */
     @RequestMapping("/exit")
-    public String exit(HttpServletRequest request){
+    public String exit(HttpServletRequest request) {
         request.getSession().removeAttribute("cellphone");
         request.getSession().removeAttribute("username");
         request.getSession().removeAttribute("usertype");

@@ -13,7 +13,7 @@ public interface StudentTopicService {
      *
      * @return
      */
-    BaseResponse selectTopic(String topicId, String studentId, String reason);
+    BaseResponse selectTopic(String topicId,String status, String studentId, String reason);
 
     /**
      * 退选
